@@ -7,7 +7,7 @@ function Footer() {
       <div className='flex items-start justify-start flex-col'>
         <img src={logo} alt="" />
         <button className="bg-[#EAAF4E] shadow text-black mt-[20px] p-[9px_25px] w-fit font-[500] rounded-[10px]">
-            Get Started – It’s Free
+            Get Started
           </button>
       </div>
       <div>
