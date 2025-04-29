@@ -1,6 +1,7 @@
 // import React from 'react'
 
 import Features from "../components/Landing/Features"
+import Footer from "../components/Landing/Footer"
 import Hero from "../components/Landing/Hero"
 import Navbar from "../components/Landing/Navbar"
 import Ready from "../components/Landing/Ready"
@@ -16,6 +17,7 @@ function Landing() {
       <Features/>
       <Simple/>
       <Ready/>
+      <Footer/>
     </div>
   )
 }
