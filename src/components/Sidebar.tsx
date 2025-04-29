@@ -1,11 +1,9 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 // import React from 'react'
 
 import { Link, useMatch } from "react-router-dom";
 import gtiLogo from "../assets/gt-logo.svg";
 
-function CustomLink({ to, icon, title }: { to: string; title: string, icon: any }) {
+function CustomLink({ to,  title }: { to: string; title: string }) {
   const match = useMatch(to !== "" ? `/dashboard/` + to : "/dashboard/");
 
   return (
