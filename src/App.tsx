@@ -2,11 +2,11 @@
 import './App.css'
 import { Route,  Routes } from 'react-router-dom'
 import Login from './pages/login'
-import Layout from './layout'
-import Overview from './pages/private/overview'
-import Appointment from './pages/private/appointment'
-import Patient from './pages/private/patient'
-import Staff from './pages/private/staff'
+// import Layout from './layout'
+// import Overview from './pages/private/overview'
+// import Appointment from './pages/private/appointment'
+// import Patient from './pages/private/patient'
+// import Staff from './pages/private/staff'
 import Landing from './pages/landing'
 
 function App() {
