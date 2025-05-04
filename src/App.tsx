@@ -9,6 +9,7 @@ import Patient from './pages/private/patient'
 import Staff from './pages/private/staff'
 import Landing from './pages/landing'
 import Register from './pages/register'
+import Settings from './pages/private/settings'
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
       <Route path='appointment' element={<Appointment/>} />
       <Route path='patients' element={<Patient/>} />
       <Route path='staff' element={<Staff/>} />
+      <Route path='settings' element={<Settings/>} />
       </Route>
     </Routes>
   )

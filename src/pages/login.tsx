@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/gt-logo.svg";
 import { useState } from "react";
 
@@ -13,6 +13,7 @@ interface LoginFormErrors {
 }
 
 function Login() {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
     password: "",
@@ -40,6 +41,7 @@ function Login() {
   const handleLogin = () => {
     if (validate()) {
       console.log("Logging in with", formData);
+      navigate('/dashboard')
       // TODO: Replace with real authentication logic
     }
   };
