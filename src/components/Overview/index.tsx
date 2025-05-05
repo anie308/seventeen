@@ -58,18 +58,21 @@ function OverviewComp() {
                   "April",
                   "May",
                   "June",
+                  "July",
+                  "August",
+                  "September",
                 ],
                 datasets: [
                   {
                     label: "Male",
-                    data: [40, 45, 50, 60, 55, 65],
+                    data: [40, 45, 50, 60, 55, 65, 70, 20, 80],
                     backgroundColor: "#1A2492",
                     barThickness: 30, // Controls the width of each bar
                     maxBarThickness: 35,
                   },
                   {
                     label: "Female",
-                    data: [35, 40, 38, 50, 48, 53],
+                    data: [35, 40, 38, 50, 48, 53, 50, 40, 30],
                     backgroundColor: "#FF6384",
                     barThickness: 30, // Controls the width of each bar
                     maxBarThickness: 35,
