@@ -20,7 +20,22 @@ function AddPatient() {
     phone: "",
     emergency1: "",
     emergency2: "",
+    image: "", // <-- add this
   });
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setFormData((prev) => ({
+          ...prev,
+          image: reader.result as string, // base64 preview
+        }));
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   const [patientId, setPatientId] = useState("");
 
@@ -54,6 +69,13 @@ function AddPatient() {
   };
 
   const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+
+  const handleDeleteImage = () => {
+    setFormData((prev) => ({
+      ...prev,
+      image: "",
+    }));
+  };
   return (
     <div className="flex text-white items-start gap-[20px]">
       <div className="w-[70%] border-r p-[20px]">
@@ -63,11 +85,30 @@ function AddPatient() {
         </div>
 
         <div className="mt-[20px] flex items-start space-x-[20px]">
-          <div className="h-[80px] w-[80px] bg-white rounded-full"></div>
+          <div className="h-[80px] w-[80px] rounded-full overflow-hidden bg-white">
+            {formData.image ? (
+              <img
+                src={formData.image}
+                alt="Patient"
+                className="object-cover h-full w-full"
+              />
+            ) : null}
+          </div>
+
           <div>
             <div className="flex items-center space-x-[10px]">
-              <p className="text-[#397AA8]">Upload Image</p>
-              <p className="text-[#9539A8]">Delete</p>
+              <div className="flex flex-col">
+                <p className="text-[#397AA8]">Upload Image</p>
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleImageUpload}
+                  className="mt-2 text-white"
+                />
+              </div>
+              <p className="text-[#9539A8] cursor-pointer" onClick={handleDeleteImage}>
+                Delete
+              </p>
             </div>
             <p className="w-[50%]  text-[12px] text-[#4C4F59]">
               It is best if the image of the person has the same height and
@@ -142,7 +183,10 @@ function AddPatient() {
       </div>
       <div className="w-[30%]  p-[10px]">
         <div>
-          <div className="h-[80px] w-[80px] bg-white rounded-full"></div>
+          <div className="h-[80px] w-[80px] bg-white overflow-hidden rounded-full">
+          <img src={formData.image} className="h-full w-full object-cover" alt="" />
+
+          </div>
           <p className="mt-[10px] text-[24px]">{fullName || "Full Name"}</p>
           <p className="text-[14px]">{formData.gender}</p>
 
@@ -172,7 +216,9 @@ function AddPatient() {
           className="bg-black border mt-[20px] flex flex-col items-center text-black p-[20px] rounded-[10px] w-[300px]"
         >
           <div className="mt-[10px] flex justify-center">
-            <div className="h-[80px] w-[80px] rounded-full bg-gray-300" />
+            <div className="h-[80px] w-[80px] rounded-full overflow-hidden bg-gray-300" >
+              <img src={formData.image} className="h-full w-full object-cover" alt="" />
+            </div>
           </div>
           <p className="text-center mt-[10px] text-white font-[500] text-[16px]">
             {fullName || "Full Name"}
@@ -183,13 +229,16 @@ function AddPatient() {
           <div className="p-[10px] bg-[#EAAF4E] rounded-[8px] w-fit mt-[10px] flex justify-center">
             <QRCodeSVG bgColor="#EAAF4E" value={patientId} size={128} />
           </div>
-          
+
           <p className="text-center mt-[10px] text-[14px] text-white break-words">
             Patient ID: {patientId}
           </p>
         </div>
 
-        <button  onClick={handleDownload} className="mt-[40px] p-[8px_20px] text-black bg-[#EAAF4E] rounded-[8px]">
+        <button
+          onClick={handleDownload}
+          className="mt-[40px] p-[8px_20px] text-black bg-[#EAAF4E] rounded-[8px]"
+        >
           Download QR Code
         </button>
       </div>
