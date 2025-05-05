@@ -1,6 +1,10 @@
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/gt-logo.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import doctors from '../assets/doctora.jpg'
+import medtech from '../assets/medtech.jpg'
+import support from '../assets/support.jpg'
+import { motion, AnimatePresence } from "framer-motion";
 
 interface LoginFormData {
   email: string;
@@ -46,6 +50,34 @@ function Login() {
     }
   };
 
+  const onboardingSlides = [
+    {
+      title: "Welcome to Rapha",
+      description:
+        "Manage your hospital records and staff from one easy platform.",
+      image: doctors,
+    },
+    {
+      title: "Secure & Reliable",
+      description: "We use end-to-end encryption to keep your data safe.",
+      image: medtech,
+    },
+    {
+      title: "Get Started Easily",
+      description: "Setup your account in minutes and go live instantly.",
+      image: support,
+    },
+  ];
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % onboardingSlides.length);
+    }, 3000); // change every 3 seconds
+    return () => clearInterval(interval);
+  }, [onboardingSlides.length]);
+
   return (
     <div className="bg-black font-poppins min-h-screen flex flex-col">
       <div className="p-[8px_20px]">
@@ -55,8 +87,43 @@ function Login() {
       </div>
 
       <div className="grid lg:grid-cols-2 grow gap-[40px] p-[20px]">
-        <div className="hidden lg:block bg-[#2B349A] text-white rounded-[10px] p-[10px]">
-          Welcome back! Please log in to your account.
+      <div className="hidden lg:flex relative text-white rounded-[10px] overflow-hidden flex-1">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentSlide}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.6 }}
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${onboardingSlides[currentSlide].image})`,
+              }}
+            >
+              <div className="absolute inset-0 bg-black/50 flex flex-col items-start justify-center text-center p-8">
+                <h2 className="text-[28px] font-bold mb-2">
+                  {onboardingSlides[currentSlide].title}
+                </h2>
+                <p className="text-[16px] text-start max-w-[400px] text-[#dddddd]">
+                  {onboardingSlides[currentSlide].description}
+                </p>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+
+          {/* Dots */}
+          <div className="absolute bottom-5 left-5 flex gap-2 z-10">
+            {onboardingSlides.map((_, i) => (
+              <div
+                key={i}
+                className={`h-[8px] rounded-full transition-all duration-300 ${
+                  i === currentSlide
+                    ? "w-[20px] bg-white"
+                    : "w-[8px] bg-gray-400"
+                }`}
+              ></div>
+            ))}
+          </div>
         </div>
 
         <div className="text-white">
@@ -104,6 +171,8 @@ function Login() {
             >
               Login
             </button>
+            <p className="mt-[10px]">Don't have an account? <Link className="text-[#EAAF4E]" to="/register">Sign Up</Link></p>
+
           </div>
         </div>
       </div>

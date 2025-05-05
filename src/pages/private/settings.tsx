@@ -181,7 +181,9 @@ function Settings() {
                 <p className="text-[20px]">Notification</p>
                 <p className="text-[16px]">Choose to get updates on the latest changes you can turn off any time</p>
               </div>
+              <div className="p-[20px]">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laudantium, aperiam est? Ipsa, at ipsum voluptatibus consequuntur, atque fuga cum blanditiis numquam aliquam sapiente iusto tenetur similique amet ad, expedita ex.
+              </div>
             </div>
           )}
            {tab === 3 && (
@@ -252,6 +254,15 @@ function Settings() {
                     className="h-[45px] w-full mt-[5px] rounded-[8px] bg-transparent px-[10px] outline-none border-white border-[2px] text-white"
                   />
                 </div>
+              </div>
+
+              <div className="border-t p-[20px] justify-between flex items-center">
+                <div className="w-[50%]">
+                  <p className="text-[16px]">Delete Account</p>
+                  <p className="text-[14px] text-[#888888]">When you delete account you automatically loose access to all account services and we permanently get rid of your data</p>
+                </div>
+                <button className="bg-[#EAAF4E] p-[8px_20px] text-black rounded-[8px]">Delete Account</button>
+               
               </div>
               
             </div>

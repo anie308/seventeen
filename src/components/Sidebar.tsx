@@ -3,6 +3,8 @@ import gtiLogo from "../assets/gt-logo.svg";
 import { LuContactRound } from "react-icons/lu";
 import { IoHomeOutline } from "react-icons/io5";
 import { BsCalendar2Check, BsPeople } from "react-icons/bs";
+import { PiGearLight } from "react-icons/pi";
+import { LuLogOut } from "react-icons/lu";
 
 type LinkItem = {
   title: string;
@@ -46,8 +48,8 @@ function Sidebar() {
   ];
 
   const bottomLinks: LinkItem[] = [
-    { title: "Settings", url: "settings", icon: "" },
-    { title: "Logout", url: "__logout__", icon: "" },
+    { title: "Settings", url: "settings", icon: <PiGearLight className="text-[25px]" /> },
+    { title: "Logout", url: "__logout__", icon: <LuLogOut className="text-[25px]"/> },
   ];
 
   return (
@@ -72,7 +74,7 @@ function Sidebar() {
                 onClick={handleLogout}
                 className="flex flex-col items-center justify-center w-full space-y-1 py-2 text-gray-500"
               >
-                <div className="h-[30px] w-[30px] border" />
+                {link.icon}
                 <p className="text-[12px] font-light">Logout</p>
               </button>
             ) : (
