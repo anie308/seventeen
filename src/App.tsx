@@ -10,6 +10,7 @@ import Staff from './pages/private/staff'
 import Landing from './pages/landing'
 import Register from './pages/register'
 import Settings from './pages/private/settings'
+import AddPatient from './pages/private/add-patient'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
       <Route path='patients' element={<Patient/>} />
       <Route path='staff' element={<Staff/>} />
       <Route path='settings' element={<Settings/>} />
+      <Route path='add-patient' element={<AddPatient/>} />
       </Route>
     </Routes>
   )

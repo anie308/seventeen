@@ -1,9 +1,11 @@
 // import React from 'react'
 
+import { useNavigate } from "react-router-dom";
 import PatientCard from "../../components/Cards/PatientCard";
 import { GoPlus } from "react-icons/go";
 
 function Patient() {
+  const navigate = useNavigate()
   return (
     <div className="text-white">
       <div className="flex items-center justify-between">
@@ -20,7 +22,7 @@ function Patient() {
             <GoPlus />
             <span>Filter</span>
           </button>
-          <button className="p-[8px_15px] bg-[#FECC4A] flex items-center  rounded-[8px] text-black space-x-[5px]">
+          <button onClick={()=> navigate('/dashboard/add-patient')} className="p-[8px_15px] bg-[#FECC4A] flex items-center  rounded-[8px] text-black space-x-[5px]">
             <GoPlus />
             <span>Add Patient</span>
           </button>
