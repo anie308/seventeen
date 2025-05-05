@@ -43,7 +43,7 @@ function OverviewComp() {
           <p className="text-[12px]">Last update: April 16</p>
         </div>
       </div>
-      <div className=" border p-[20px]">
+      <div className="bg-[#181818] rounded-[8px]  p-[20px]">
         <div className="flex items-center justify-between ">
           <p className="font-[700] text-[24px]">Patient Gender Distribution</p>
         </div>
@@ -94,7 +94,7 @@ function OverviewComp() {
           </div>
         </div>
       </div>
-      <div className="p-[20px] w-full flex gap-[20px] items-start border">
+      <div className="p-[20px] w-full flex gap-[20px] items-start ">
         <div className="w-[70%]">
           <p className="text-[20px] font-[600]">Doctor Availability</p>
 
