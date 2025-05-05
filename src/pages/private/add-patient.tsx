@@ -2,10 +2,14 @@
 // import React from 'react'
 
 import { useEffect, useState } from "react";
-import  {QRCodeSVG}  from "qrcode.react";
+import { QRCodeSVG } from "qrcode.react";
 import { v4 as uuidv4 } from "uuid";
+import { useRef } from "react";
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 function AddPatient() {
+  const qrRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -27,6 +31,26 @@ function AddPatient() {
   const handleChange = (e: any) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleDownload = async () => {
+    if (qrRef.current) {
+      const canvas = await html2canvas(qrRef.current, { scale: 2 });
+      const imgData = canvas.toDataURL("image/png");
+
+      const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: "a4",
+      });
+
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = 180;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+      pdf.addImage(imgData, "PNG", 15, 20, pdfWidth, pdfHeight);
+      pdf.save(`${patientId.toLocaleUpperCase()}.pdf`);
+    }
   };
 
   const fullName = `${formData.firstName} ${formData.lastName}`.trim();
@@ -142,24 +166,31 @@ function AddPatient() {
             </div>
           </div>
         </div>
-        
 
-        <div className="mt-[20px]">
-         <div className="p-[10px] border w-fit">
-         <QRCodeSVG
-            value={patientId}
-            bgColor="#ffffff"
-            fgColor="#000000"
-            size={128}
-          />
-         </div>
-          <p className="mt-[5px] text-xs text-white break-all">
+        <div
+          ref={qrRef}
+          className="bg-black border mt-[20px] flex flex-col items-center text-black p-[20px] rounded-[10px] w-[300px]"
+        >
+          <div className="mt-[10px] flex justify-center">
+            <div className="h-[80px] w-[80px] rounded-full bg-gray-300" />
+          </div>
+          <p className="text-center mt-[10px] text-white font-[500] text-[16px]">
+            {fullName || "Full Name"}
+          </p>
+          <p className="text-center mt-[2px] text-white font-[400] text-[15px]">
+            Rapha Medical
+          </p>
+          <div className="p-[10px] bg-[#EAAF4E] rounded-[8px] w-fit mt-[10px] flex justify-center">
+            <QRCodeSVG bgColor="#EAAF4E" value={patientId} size={128} />
+          </div>
+          
+          <p className="text-center mt-[10px] text-[14px] text-white break-words">
             Patient ID: {patientId}
           </p>
         </div>
 
-        <button className="mt-[40px] p-[8px_20px] text-black bg-[#EAAF4E] rounded-[8px]">
-          Print QR Code
+        <button  onClick={handleDownload} className="mt-[40px] p-[8px_20px] text-black bg-[#EAAF4E] rounded-[8px]">
+          Download QR Code
         </button>
       </div>
     </div>
