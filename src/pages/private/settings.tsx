@@ -13,7 +13,7 @@ function Settings() {
             Cancel
           </button>
           <button className=" bg-[#EAAF4E] p-[8px_20px] rounded-[8px]">
-            Cancel
+            Save
           </button>
         </div>
       </div>
