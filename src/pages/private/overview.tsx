@@ -1,8 +1,11 @@
 // import React from 'react'
 
 import { useState } from "react";
+import OverviewComp from "../../components/Overview";
+import { useNavigate } from "react-router-dom";
 
 function Overview() {
+  const navigate = useNavigate()
   const [tab, setTab] = useState(0);
   return (
     <div>
@@ -43,7 +46,7 @@ function Overview() {
         </div>
 
         <div className="flex items-center space-x-[10px]">
-          <button className="bg-[#EAAF4E] text-black p-[8px_20px] rounded-[8px]">
+          <button onClick={()=> navigate('/dashboard/add-patient')}  className="bg-[#EAAF4E] text-black p-[8px_20px] rounded-[8px]">
             Add New Patient
           </button>
           <button className="bg-[#EAAF4E] text-black p-[8px_20px] rounded-[8px]">
@@ -52,9 +55,9 @@ function Overview() {
         </div>
       </div>
 
-     <div className="mt-[20px] text-white border p-[20px]">
+     <div className="mt-[20px] text-white  p-[20px]">
      {tab === 0 && (
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati laborum consectetur provident saepe vel perferendis fugit molestias voluptates blanditiis voluptatum nostrum laudantium hic dolor voluptatem, assumenda nulla amet maiores alias!</div>
+        <OverviewComp/>
       )}
      </div>
     </div>
