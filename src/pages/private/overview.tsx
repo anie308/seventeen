@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import OverviewComp from "../../components/Overview";
+import Patients from "../../components/Patients";
+import Hospitals from "../../components/Hospitals";
 import { useNavigate } from "react-router-dom";
 
 function Overview() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [tab, setTab] = useState(0);
   return (
     <div>
@@ -41,12 +43,15 @@ function Overview() {
               tab === 3 ? "bg-[#EAAF4E] text-black" : "text-white"
             } rounded-[8px] p-[8px_20px]`}
           >
-            Doctprs
+            Doctors
           </button>
         </div>
 
         <div className="flex items-center space-x-[10px]">
-          <button onClick={()=> navigate('/dashboard/add-patient')}  className="bg-[#EAAF4E] text-black p-[8px_20px] rounded-[8px]">
+          <button
+            onClick={() => navigate("/dashboard/add-patient")}
+            className="bg-[#EAAF4E] text-black p-[8px_20px] rounded-[8px]"
+          >
             Add New Patient
           </button>
           <button className="bg-[#EAAF4E] text-black p-[8px_20px] rounded-[8px]">
@@ -55,11 +60,15 @@ function Overview() {
         </div>
       </div>
 
-     <div className="mt-[20px] text-white  p-[20px]">
-     {tab === 0 && (
-        <OverviewComp/>
-      )}
-     </div>
+      <div className="mt-[20px] text-white  p-[20px]">
+        {tab === 0 && <OverviewComp />}
+      </div>
+      <div className="mt-[20px] text-white  p-[20px]">
+        {tab === 1 && <Patients />}
+      </div>
+      <div className="mt-[20px] text-white  p-[20px]">
+        {tab === 2 && <Hospitals />}
+      </div>
     </div>
   );
 }

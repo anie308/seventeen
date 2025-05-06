@@ -128,6 +128,39 @@ function OverviewComp() {
                   <td className="px-6 py-4">Room 103</td>
                   <td className="px-6 py-4">Oncologist</td>
                 </tr>
+                <tr className=" bg-[#181818]">
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Dr Chibus Godsin
+                  </th>
+                  <td className="px-6 py-4">Dermatologist</td>
+                  <td className="px-6 py-4">Room 406</td>
+                  <td className="px-6 py-4">Dermatologist</td>
+                </tr>
+                <tr className=" bg-[#181818]">
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Dr Awmah Bassey
+                  </th>
+                  <td className="px-6 py-4">Pediatrician</td>
+                  <td className="px-6 py-4">-</td>
+                  <td className="px-6 py-4">Pediatrician</td>
+                </tr>
+                <tr className=" bg-[#181818]">
+                  <th
+                    scope="row"
+                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                  >
+                    Dr Jacob Jones
+                  </th>
+                  <td className="px-6 py-4">Surgeon</td>
+                  <td className="px-6 py-4">Room 103</td>
+                  <td className="px-6 py-4">Surgeon</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -148,6 +181,24 @@ function OverviewComp() {
               <div className="flex items-center justify-between">
                 <p className="text-[12px]">Dermatology</p>
                 <p className="text-[12px]">16 (20%)</p>
+              </div>
+              <div className="h-[25px] mt-[2px] bg-white">
+                <p className="bg-[#1A2492] h-full w-[60%]"></p>
+              </div>
+            </div>
+            <div className="">
+              <div className="flex items-center justify-between">
+                <p className="text-[12px]">Pediatry</p>
+                <p className="text-[12px]">20 (25%)</p>
+              </div>
+              <div className="h-[25px] mt-[2px] bg-white">
+                <p className="bg-[#1A2492] h-full w-[60%]"></p>
+              </div>
+            </div>
+            <div className="">
+              <div className="flex items-center justify-between">
+                <p className="text-[12px]">Surgery</p>
+                <p className="text-[12px]">20 (25%)</p>
               </div>
               <div className="h-[25px] mt-[2px] bg-white">
                 <p className="bg-[#1A2492] h-full w-[60%]"></p>
