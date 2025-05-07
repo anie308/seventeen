@@ -5,6 +5,7 @@ import OverviewComp from "../../components/Overview";
 import Patients from "../../components/Patients";
 import Hospitals from "../../components/Hospitals";
 import { useNavigate } from "react-router-dom";
+import Doctors from "../../components/Doctors";
 
 function Overview() {
   const navigate = useNavigate();
@@ -68,6 +69,9 @@ function Overview() {
       </div>
       <div className="mt-[20px] text-white  p-[20px]">
         {tab === 2 && <Hospitals />}
+      </div>
+      <div className="mt-[20px] text-white  p-[20px]">
+        {tab === 3 && <Doctors />}
       </div>
     </div>
   );
