@@ -2,7 +2,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FiMail, FiCheck, FiX, FiArrowRight, FiClock, FiShield } from "react-icons/fi";
 import { ThemeProvider } from "../components/ThemeProvider";
-import logo from "../assets/gt-logo.svg";
+// import logo from "../assets/gt-logo.svg";
 
 function VerifyEmailContent() {
   const navigate = useNavigate();
@@ -82,9 +82,9 @@ function VerifyEmailContent() {
         {/* Header */}
         <div className="p-6 border-b border-surface-700">
           <Link to="/" className="flex items-center space-x-3">
-            <img src={logo} className="h-12" alt="Seventeen Healthcare" />
+            {/* <img src={logo} className="h-12" alt="Seventeen Healthcare" /> */}
             <div>
-              <h1 className="text-white font-bold text-lg">Seventeen</h1>
+              <h1 className="text-white font-bold text-lg">Rapha Medicals</h1>
               <p className="text-surface-400 text-sm">Healthcare Management</p>
             </div>
           </Link>
@@ -192,9 +192,9 @@ function VerifyEmailContent() {
       {/* Header */}
       <div className="p-6 border-b border-surface-700">
         <Link to="/" className="flex items-center space-x-3">
-          <img src={logo} className="h-12" alt="Seventeen Healthcare" />
+          {/* <img src={logo} className="h-12" alt="Seventeen Healthcare" /> */}
           <div>
-            <h1 className="text-white font-bold text-lg">Seventeen</h1>
+            <h1 className="text-white font-bold text-lg">Rapha Medicals</h1>
             <p className="text-surface-400 text-sm">Healthcare Management</p>
           </div>
         </Link>

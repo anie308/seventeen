@@ -2,7 +2,7 @@ import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FiLock, FiEye, FiEyeOff, FiArrowRight, FiShield, FiCheck, FiX } from "react-icons/fi";
 import { ThemeProvider } from "../components/ThemeProvider";
-import logo from "../assets/gt-logo.svg";
+// import logo from "../assets/gt-logo.svg";
 
 interface ResetPasswordFormData {
   password: string;
@@ -130,7 +130,7 @@ function ResetPasswordContent() {
       <div className="bg-surface-900 font-poppins min-h-screen flex flex-col">
         <div className="p-6 border-b border-surface-700">
           <Link to="/" className="flex items-center space-x-3">
-            <img src={logo} className="h-12" alt="Seventeen Healthcare" />
+            {/* <img src={logo} className="h-12" alt="Seventeen Healthcare" /> */}
             <div>
               <h1 className="text-white font-bold text-lg">Rapha Medical</h1>
               <p className="text-surface-400 text-sm">Healthcare Management</p>
@@ -174,7 +174,7 @@ function ResetPasswordContent() {
       {/* Header */}
       <div className="p-6 border-b border-surface-700">
         <Link to="/" className="flex items-center space-x-3">
-          <img src={logo} className="h-12" alt="Seventeen Healthcare" />
+          {/* <img src={logo} className="h-12" alt="Seventeen Healthcare" /> */}
           <div>
             <h1 className="text-white font-bold text-lg">Rapha Medical</h1>
             <p className="text-surface-400 text-sm">Healthcare Management</p>

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiEye, FiEyeOff, FiShield, FiLock, FiUser, FiMail, FiPhone, FiMapPin,  FiArrowRight, FiCheck } from "react-icons/fi";
 import { ThemeProvider, useTheme } from "../components/ThemeProvider";
-import logo from "../assets/gt-logo.svg";
+// import logo from "../assets/gt-logo.svg";
 import doctors from '../assets/doctora.jpg';
 import medtech from '../assets/medtech.jpg';
 import support from '../assets/support.jpg';
@@ -176,7 +176,7 @@ function RegisterContent() {
       {/* Header */}
       <div className="p-6 border-b border-surface-700">
         <Link to="/" className="flex items-center space-x-3">
-          <img src={logo} className="h-12" alt="Seventeen Healthcare" />
+          {/* <img src={logo} className="h-12" alt="Seventeen Healthcare" /> */}
           <div>
             <h1 className="text-white font-bold text-lg">Rapha Medical</h1>
             <p className="text-surface-400 text-sm">Healthcare Management</p>

@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 // import { useTheme } from '../ThemeProvider'
 // import ThemeSelector from '../ThemeSelector'
-import logo from '../../assets/gt-logo.svg'
+// import logo from '../../assets/gt-logo.svg'
 
 function Navbar() {
   const navigate = useNavigate()
@@ -10,7 +10,7 @@ function Navbar() {
   return (
     <div className='flex bg-surface-800 items-center justify-between p-[15px_20px] lg:p-[15px_40px] border-b border-surface-700'>
         <div className="flex items-center space-x-4">
-          <img src={logo} className='h-[50px]' alt="Hospital Logo" />
+          {/* <img src={logo} className='h-[50px]' alt="Hospital Logo" /> */}
           <div className="hidden lg:block">
             <h1 className="text-white text-lg font-semibold">Rapha Medical</h1>
             <p className="text-surface-300 text-sm">Healthcare Management System</p>
