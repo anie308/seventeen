@@ -1,9 +1,7 @@
 import { FiMail, FiPhone, FiMapPin, FiTwitter, FiLinkedin, FiShield } from "react-icons/fi";
-import { useTheme } from "../ThemeProvider";
 import logo from '../../assets/gt-logo.svg';
 
 function Footer() {
-  const { theme } = useTheme();
 
   const footerSections = {
     platform: [
@@ -54,14 +52,14 @@ function Footer() {
               <div className="flex items-center space-x-3">
                 <img src={logo} alt="Seventeen Healthcare" className="h-12" />
                 <div>
-                  <h3 className="text-white font-bold text-lg">Seventeen</h3>
+                  <h3 className="text-white font-bold text-lg">Rapha Mediacl</h3>
                   <p className="text-surface-400 text-sm">Healthcare Management</p>
                 </div>
               </div>
               
               <p className="text-surface-300 leading-relaxed max-w-md">
                 Empowering healthcare facilities with secure, compliant, and intuitive 
-                management solutions. Trusted by {theme.hospitalName} and hundreds of other institutions.
+                management solutions.
               </p>
               
               <button className="bg-primary hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200 transform hover:scale-105">

@@ -17,8 +17,8 @@ function Ready() {
           {/* Content Section */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-3xl lg:text-5xl font-bold text-white leading-tight mb-6">
-                Ready to Transform your<span className="text-primary-300">Healthcare Services</span>?
+              <h2 className="text-3xl lg:text-5xl font-bold text-white  mb-6">
+                Ready to Transform your <span className="text-primary-300">Healthcare Services</span>?
               </h2>
               <p className="text-surface-300 text-lg lg:text-xl leading-relaxed">
                 Join hundreds of healthcare facilities already using Seventeen to deliver 

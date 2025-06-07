@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiEye, FiEyeOff, FiShield, FiLock, FiUser, FiArrowRight } from "react-icons/fi";
-import { ThemeProvider, useTheme } from "../components/ThemeProvider";
+import { ThemeProvider } from "../components/ThemeProvider";
 import logo from "../assets/gt-logo.svg";
 import doctors from '../assets/doctora.jpg';
 import medtech from '../assets/medtech.jpg';
@@ -20,7 +20,6 @@ interface LoginFormErrors {
 
 function LoginContent() {
   const navigate = useNavigate();
-  const { theme } = useTheme();
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
     password: "",
@@ -69,7 +68,7 @@ function LoginContent() {
 
   const onboardingSlides = [
     {
-      title: "Welcome to Seventeen",
+      title: "Welcome to Rapha",
       subtitle: "Healthcare Management System",
       description: "Secure, compliant, and intuitive platform designed specifically for modern healthcare facilities.",
       image: doctors,
@@ -182,7 +181,7 @@ function LoginContent() {
             <div className="text-center space-y-2">
               <h2 className="text-3xl font-bold text-white">Welcome Back</h2>
               <p className="text-surface-400">
-                Sign in to access <span className="text-primary font-medium">{theme.hospitalName}</span>'s dashboard
+                Sign in to access <span className="text-primary font-medium">Rapha Medicals</span> Services
               </p>
             </div>
 
