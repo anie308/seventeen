@@ -10,67 +10,50 @@ import Doctors from "../../components/Doctors";
 function Overview() {
   const navigate = useNavigate();
   const [tab, setTab] = useState(0);
+
+  const tabs = [
+    { id: 0, label: 'Overview' },
+    { id: 1, label: 'Patients' },
+    { id: 2, label: 'Hospitals' },
+    { id: 3, label: 'Doctors' },
+  ];
+
   return (
-    <div>
-      <div className="flex items-center justify-between">
-        <div className="p-[10px] flex items-center space-x-[10px]">
-          <button
-            onClick={() => setTab(0)}
-            className={`${
-              tab === 0 ? "bg-[#EAAF4E] text-black" : "text-white"
-            } rounded-[8px] p-[8px_20px]`}
-          >
-            Overview
-          </button>
-          <button
-            onClick={() => setTab(1)}
-            className={`${
-              tab === 1 ? "bg-[#EAAF4E] text-black" : "text-white"
-            } rounded-[8px] p-[8px_20px]`}
-          >
-            Patients
-          </button>
-          <button
-            onClick={() => setTab(2)}
-            className={`${
-              tab === 2 ? "bg-[#EAAF4E] text-black" : "text-white"
-            } rounded-[8px] p-[8px_20px]`}
-          >
-            Hospitals
-          </button>
-          <button
-            onClick={() => setTab(3)}
-            className={`${
-              tab === 3 ? "bg-[#EAAF4E] text-black" : "text-white"
-            } rounded-[8px] p-[8px_20px]`}
-          >
-            Doctors
-          </button>
+    <div className="space-y-6">
+      <div className="flex items-center justify-between bg-white p-6 rounded-xl shadow-sm border border-surface-200">
+        <div className="flex items-center space-x-2 bg-surface-100 p-1 rounded-lg">
+          {tabs.map((tabItem) => (
+            <button
+              key={tabItem.id}
+              onClick={() => setTab(tabItem.id)}
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+                tab === tabItem.id 
+                  ? "bg-primary text-white shadow-sm" 
+                  : "text-surface-600 hover:text-surface-900 hover:bg-surface-200"
+              }`}
+            >
+              {tabItem.label}
+            </button>
+          ))}
         </div>
 
-        <div className="flex items-center space-x-[10px]">
+        <div className="flex items-center space-x-3">
           <button
             onClick={() => navigate("/dashboard/add-patient")}
-            className="bg-[#EAAF4E] text-black p-[8px_20px] rounded-[8px]"
+            className="bg-primary hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2"
           >
-            Add New Patient
+            <span>Add New Patient</span>
           </button>
-          <button className="bg-[#EAAF4E] text-black p-[8px_20px] rounded-[8px]">
+          <button className="bg-secondary hover:bg-secondary-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
             Validate Patient
           </button>
         </div>
       </div>
 
-      <div className="mt-[20px] text-white  p-[20px]">
+      <div className="bg-white rounded-xl shadow-sm border border-surface-200">
         {tab === 0 && <OverviewComp />}
-      </div>
-      <div className="mt-[20px] text-white  p-[20px]">
         {tab === 1 && <Patients />}
-      </div>
-      <div className="mt-[20px] text-white  p-[20px]">
         {tab === 2 && <Hospitals />}
-      </div>
-      <div className="mt-[20px] text-white  p-[20px]">
         {tab === 3 && <Doctors />}
       </div>
     </div>

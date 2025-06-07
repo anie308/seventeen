@@ -18,13 +18,12 @@ function CustomLink({ to, title, icon }: { to: string; title: string, icon: Reac
   return (
     <Link
       to={`/dashboard/${to}`}
-      className={`flex flex-col items-center justify-center w-full space-y-1 py-2 transition-all ${
-        match ? "bg-primary text-white" : "bg-transparent text-gray-500"
+      className={`flex flex-col items-center justify-center w-full space-y-1 py-3 mx-2 rounded-xl transition-all duration-200 ${
+        match ? "bg-primary text-white shadow-lg" : "bg-transparent text-surface-400 hover:bg-surface-700/20 hover:text-surface-300"
       }`}
     >
-      {/* <div className="h-[30px] w-[30px] border" /> */}
       {icon}
-      <p className={`text-[12px] font-light ${match ? "text-white" : "text-gray-500"}`}>
+      <p className={`text-[11px] font-medium ${match ? "text-white" : "text-surface-400"}`}>
         {title}
       </p>
     </Link>
@@ -53,29 +52,29 @@ function Sidebar() {
   ];
 
   return (
-    <div className="w-[120px] h-full bg-[#181818] flex flex-col">
-      <div>
-        <img src={gtiLogo} className="h-[80px]" alt="GTI Logo" />
+    <div className="w-[120px] h-full bg-surface-800 flex flex-col border-r border-surface-200">
+      <div className="flex items-center justify-center py-6">
+        <img src={gtiLogo} className="h-12 w-auto" alt="GTI Logo" />
       </div>
-      <div className="grow flex-1 text-white flex flex-col items-center justify-between">
+      <div className="grow flex-1 text-white flex flex-col justify-between">
         {/* Top navigation */}
-        <div className="flex flex-col mt-[10px] space-y-[10px]">
+        <div className="flex flex-col mt-4 space-y-2">
           {topLinks.map((link, index) => (
             <CustomLink to={link.url} icon={link.icon} key={index} title={link.title} />
           ))}
         </div>
 
         {/* Bottom navigation (Settings + Logout) */}
-        <div className="flex flex-col space-y-[10px] pb-[10px]">
+        <div className="flex flex-col space-y-2 pb-4">
           {bottomLinks.map((link, index) =>
             link.url === "__logout__" ? (
               <button
                 key={index}
                 onClick={handleLogout}
-                className="flex flex-col items-center justify-center w-full space-y-1 py-2 text-gray-500"
+                className="flex flex-col items-center justify-center w-full space-y-1 py-3 mx-2 rounded-xl text-surface-400 hover:bg-surface-700/20 hover:text-surface-300 transition-all duration-200"
               >
                 {link.icon}
-                <p className="text-[12px] font-light">Logout</p>
+                <p className="text-[11px] font-medium">Logout</p>
               </button>
             ) : (
               <CustomLink to={link.url} key={index} title={link.title} icon={link.icon} />

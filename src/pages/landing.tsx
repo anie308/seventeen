@@ -1,5 +1,4 @@
-// import React from 'react'
-
+import { ThemeProvider } from "../components/ThemeProvider"
 import Features from "../components/Landing/Features"
 import Footer from "../components/Landing/Footer"
 import Hero from "../components/Landing/Hero"
@@ -10,15 +9,17 @@ import Trusted from "../components/Landing/Trusted"
 
 function Landing() {
   return (
-    <div className="bg-[#181818] font-poppins">
-      <Navbar/>
-      <Hero/>
-      <Trusted/>
-      <Features/>
-      <Simple/>
-      <Ready/>
-      <Footer/>
-    </div>
+    <ThemeProvider>
+      <div className="bg-surface-900 font-poppins min-h-screen">
+        <Navbar/>
+        <Hero/>
+        <Trusted/>
+        <Features/>
+        <Simple/>
+        <Ready/>
+        <Footer/>
+      </div>
+    </ThemeProvider>
   )
 }
 

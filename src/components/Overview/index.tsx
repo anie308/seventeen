@@ -20,190 +20,228 @@ ChartJS.register(
 );
 function OverviewComp() {
   return (
-    <div className="flex flex-col space-y-[20px]">
-      <div className="grid grid-cols-4 gap-[30px] w-[80%]">
-        <div className="p-[20px]  rounded-[8px] bg-[#181818]">
-          <p className="text-[12px]">Visitors</p>
-          <p className="text-[25px] font-[500]">300</p>
-          <p className="text-[12px]">Last update: April 16</p>
+    <div className="p-6 space-y-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="bg-gradient-to-br from-primary-50 to-primary-100 p-6 rounded-xl border border-primary-200">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-primary-700">Visitors</p>
+              <p className="text-3xl font-bold text-primary-900 mt-1">300</p>
+              <p className="text-xs text-primary-600 mt-2">Last update: April 16</p>
+            </div>
+            <div className="h-12 w-12 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold">👥</span>
+            </div>
+          </div>
         </div>
-        <div className="p-[20px]  rounded-[8px] bg-[#181818]">
-          <p className="text-[12px]">Patients</p>
-          <p className="text-[25px] font-[500]">300</p>
-          <p className="text-[12px]">Last update: April 16</p>
+        <div className="bg-gradient-to-br from-secondary-50 to-secondary-100 p-6 rounded-xl border border-secondary-200">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-secondary-700">Patients</p>
+              <p className="text-3xl font-bold text-secondary-900 mt-1">300</p>
+              <p className="text-xs text-secondary-600 mt-2">Last update: April 16</p>
+            </div>
+            <div className="h-12 w-12 bg-secondary rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold">🏥</span>
+            </div>
+          </div>
         </div>
-        <div className="p-[20px]  rounded-[8px] bg-[#181818]">
-          <p className="text-[12px]">Doctors</p>
-          <p className="text-[25px] font-[500]">300</p>
-          <p className="text-[12px]">Last update: April 16</p>
+        <div className="bg-gradient-to-br from-info/10 to-info/20 p-6 rounded-xl border border-blue-200">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-blue-700">Doctors</p>
+              <p className="text-3xl font-bold text-blue-900 mt-1">300</p>
+              <p className="text-xs text-blue-600 mt-2">Last update: April 16</p>
+            </div>
+            <div className="h-12 w-12 bg-info rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold">👨‍⚕️</span>
+            </div>
+          </div>
         </div>
-        <div className="p-[20px]  rounded-[8px] bg-[#181818]">
-          <p className="text-[12px]">Earnings</p>
-          <p className="text-[25px] font-[500]">1,500,000</p>
-          <p className="text-[12px]">Last update: April 16</p>
-        </div>
-      </div>
-      <div className="bg-[#181818] rounded-[8px]  p-[20px]">
-        <div className="flex items-center justify-between ">
-          <p className="font-[700] text-[24px]">Patient Gender Distribution</p>
-        </div>
-        <div className="">
-          <div className="mt-[20px] h-[300px]">
-            <Bar
-              data={{
-                labels: [
-                  "January",
-                  "February",
-                  "March",
-                  "April",
-                  "May",
-                  "June",
-                  "July",
-                  "August",
-                  "September",
-                ],
-                datasets: [
-                  {
-                    label: "Male",
-                    data: [40, 45, 50, 60, 55, 65, 70, 20, 80],
-                    backgroundColor: "#1A2492",
-                    barThickness: 30, // Controls the width of each bar
-                    maxBarThickness: 35,
-                  },
-                  {
-                    label: "Female",
-                    data: [35, 40, 38, 50, 48, 53, 50, 40, 30],
-                    backgroundColor: "#FF6384",
-                    barThickness: 30, // Controls the width of each bar
-                    maxBarThickness: 35,
-                  },
-                ],
-              }}
-              options={{
-                responsive: true,
-                maintainAspectRatio: false, // Important for height to take effect
-                plugins: {
-                  legend: { position: "top" },
-                  title: {
-                    display: true,
-                    text: "Monthly Gender Distribution",
-                  },
-                },
-              }}
-            />
+        <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl border border-green-200">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-sm font-medium text-green-700">Earnings</p>
+              <p className="text-3xl font-bold text-green-900 mt-1">$1.5M</p>
+              <p className="text-xs text-green-600 mt-2">Last update: April 16</p>
+            </div>
+            <div className="h-12 w-12 bg-success rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold">💰</span>
+            </div>
           </div>
         </div>
       </div>
-      <div className="p-[20px] w-full flex gap-[20px] items-start ">
-        <div className="w-[70%]">
-          <p className="text-[20px] font-[600]">Doctor Availability</p>
+      <div className="bg-white rounded-xl p-6 shadow-sm border border-surface-200">
+        <div className="flex items-center justify-between mb-6">
+          <h3 className="text-xl font-bold text-surface-900">Patient Gender Distribution</h3>
+        </div>
+        <div className="h-[300px]">
+          <Bar
+            data={{
+              labels: [
+                "January",
+                "February", 
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+              ],
+              datasets: [
+                {
+                  label: "Male",
+                  data: [40, 45, 50, 60, 55, 65, 70, 20, 80],
+                  backgroundColor: "var(--primary-600)",
+                  borderRadius: 6,
+                  barThickness: 30,
+                  maxBarThickness: 35,
+                },
+                {
+                  label: "Female", 
+                  data: [35, 40, 38, 50, 48, 53, 50, 40, 30],
+                  backgroundColor: "var(--secondary-500)",
+                  borderRadius: 6,
+                  barThickness: 30,
+                  maxBarThickness: 35,
+                },
+              ],
+            }}
+            options={{
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { 
+                  position: "top",
+                  labels: {
+                    usePointStyle: true,
+                    padding: 20,
+                  }
+                },
+                title: {
+                  display: true,
+                  text: "Monthly Gender Distribution",
+                  font: { size: 16, weight: 'bold' },
+                  color: 'var(--surface-900)',
+                },
+              },
+              scales: {
+                x: {
+                  grid: { display: false },
+                  ticks: { color: 'var(--surface-600)' }
+                },
+                y: {
+                  grid: { color: 'var(--surface-200)' },
+                  ticks: { color: 'var(--surface-600)' }
+                }
+              }
+            }}
+          />
+        </div>
+      </div>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 bg-white rounded-xl p-6 shadow-sm border border-surface-200">
+          <h3 className="text-xl font-bold text-surface-900 mb-4">Doctor Availability</h3>
 
-          <div className="relative overflow-x-auto mt-[10px]">
-            <table className="w-full text-sm text-left rtl:text-right ">
-              <thead className="text-xs  uppercase  bg-[#0F0F0F]">
-                <tr>
-                  <th scope="col" className="px-6 py-3">
-                    Doctor
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Specialty
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Room
-                  </th>
-                  <th scope="col" className="px-6 py-3">
-                    Condition
-                  </th>
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-surface-200">
+                  <th className="text-left py-3 px-4 font-semibold text-surface-700">Doctor</th>
+                  <th className="text-left py-3 px-4 font-semibold text-surface-700">Specialty</th>
+                  <th className="text-left py-3 px-4 font-semibold text-surface-700">Room</th>
+                  <th className="text-left py-3 px-4 font-semibold text-surface-700">Status</th>
                 </tr>
               </thead>
               <tbody>
-                <tr className=" bg-[#181818]">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Dr Xavier Bush
-                  </th>
-                  <td className="px-6 py-4">Oncologist</td>
-                  <td className="px-6 py-4">Room 103</td>
-                  <td className="px-6 py-4">Oncologist</td>
+                <tr className="border-b border-surface-100 hover:bg-surface-50 transition-colors">
+                  <td className="py-4 px-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="h-8 w-8 bg-primary rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs font-medium">XB</span>
+                      </div>
+                      <span className="font-medium text-surface-900">Dr Xavier Bush</span>
+                    </div>
+                  </td>
+                  <td className="py-4 px-4 text-surface-600">Oncologist</td>
+                  <td className="py-4 px-4 text-surface-600">Room 103</td>
+                  <td className="py-4 px-4">
+                    <span className="inline-flex px-2 py-1 text-xs font-medium bg-success/10 text-success rounded-full">Available</span>
+                  </td>
                 </tr>
-                <tr className=" bg-[#181818]">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Dr Chibus Godsin
-                  </th>
-                  <td className="px-6 py-4">Dermatologist</td>
-                  <td className="px-6 py-4">Room 406</td>
-                  <td className="px-6 py-4">Dermatologist</td>
+                <tr className="border-b border-surface-100 hover:bg-surface-50 transition-colors">
+                  <td className="py-4 px-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="h-8 w-8 bg-secondary rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs font-medium">CG</span>
+                      </div>
+                      <span className="font-medium text-surface-900">Dr Chibus Godsin</span>
+                    </div>
+                  </td>
+                  <td className="py-4 px-4 text-surface-600">Dermatologist</td>
+                  <td className="py-4 px-4 text-surface-600">Room 406</td>
+                  <td className="py-4 px-4">
+                    <span className="inline-flex px-2 py-1 text-xs font-medium bg-warning/10 text-warning rounded-full">Busy</span>
+                  </td>
                 </tr>
-                <tr className=" bg-[#181818]">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Dr Awmah Bassey
-                  </th>
-                  <td className="px-6 py-4">Pediatrician</td>
-                  <td className="px-6 py-4">-</td>
-                  <td className="px-6 py-4">Pediatrician</td>
+                <tr className="border-b border-surface-100 hover:bg-surface-50 transition-colors">
+                  <td className="py-4 px-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="h-8 w-8 bg-accent rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs font-medium">AB</span>
+                      </div>
+                      <span className="font-medium text-surface-900">Dr Awmah Bassey</span>
+                    </div>
+                  </td>
+                  <td className="py-4 px-4 text-surface-600">Pediatrician</td>
+                  <td className="py-4 px-4 text-surface-600">-</td>
+                  <td className="py-4 px-4">
+                    <span className="inline-flex px-2 py-1 text-xs font-medium bg-error/10 text-error rounded-full">Off Duty</span>
+                  </td>
                 </tr>
-                <tr className=" bg-[#181818]">
-                  <th
-                    scope="row"
-                    className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                  >
-                    Dr Jacob Jones
-                  </th>
-                  <td className="px-6 py-4">Surgeon</td>
-                  <td className="px-6 py-4">Room 103</td>
-                  <td className="px-6 py-4">Surgeon</td>
+                <tr className="hover:bg-surface-50 transition-colors">
+                  <td className="py-4 px-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="h-8 w-8 bg-info rounded-full flex items-center justify-center">
+                        <span className="text-white text-xs font-medium">JJ</span>
+                      </div>
+                      <span className="font-medium text-surface-900">Dr Jacob Jones</span>
+                    </div>
+                  </td>
+                  <td className="py-4 px-4 text-surface-600">Surgeon</td>
+                  <td className="py-4 px-4 text-surface-600">Room 103</td>
+                  <td className="py-4 px-4">
+                    <span className="inline-flex px-2 py-1 text-xs font-medium bg-success/10 text-success rounded-full">Available</span>
+                  </td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-        <div className="w-[30%]">
-          <p className="text-[20px] font-[600]">Doctor Availability</p>
-          <div className="mt-[10px] flex flex-col space-y-[10px]">
-            <div className="">
-              <div className="flex items-center justify-between">
-                <p className="text-[12px]">Cardiology</p>
-                <p className="text-[12px]">20 (25%)</p>
+        
+        <div className="bg-white rounded-xl p-6 shadow-sm border border-surface-200">
+          <h3 className="text-xl font-bold text-surface-900 mb-4">Specialty Distribution</h3>
+          <div className="space-y-4">
+            {[
+              { name: 'Cardiology', count: 20, percentage: 25, color: 'bg-primary' },
+              { name: 'Dermatology', count: 16, percentage: 20, color: 'bg-secondary' },
+              { name: 'Pediatry', count: 20, percentage: 25, color: 'bg-accent' },
+              { name: 'Surgery', count: 24, percentage: 30, color: 'bg-success' },
+            ].map((specialty, index) => (
+              <div key={index} className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-medium text-surface-700">{specialty.name}</span>
+                  <span className="text-sm text-surface-600">{specialty.count} ({specialty.percentage}%)</span>
+                </div>
+                <div className="w-full bg-surface-200 rounded-full h-2">
+                  <div 
+                    className={`${specialty.color} h-2 rounded-full transition-all duration-300`}
+                    style={{ width: `${specialty.percentage}%` }}
+                  ></div>
+                </div>
               </div>
-              <div className="h-[25px] mt-[2px] bg-white">
-                <p className="bg-[#1A2492] h-full w-[60%]"></p>
-              </div>
-            </div>
-            <div className="">
-              <div className="flex items-center justify-between">
-                <p className="text-[12px]">Dermatology</p>
-                <p className="text-[12px]">16 (20%)</p>
-              </div>
-              <div className="h-[25px] mt-[2px] bg-white">
-                <p className="bg-[#1A2492] h-full w-[60%]"></p>
-              </div>
-            </div>
-            <div className="">
-              <div className="flex items-center justify-between">
-                <p className="text-[12px]">Pediatry</p>
-                <p className="text-[12px]">20 (25%)</p>
-              </div>
-              <div className="h-[25px] mt-[2px] bg-white">
-                <p className="bg-[#1A2492] h-full w-[60%]"></p>
-              </div>
-            </div>
-            <div className="">
-              <div className="flex items-center justify-between">
-                <p className="text-[12px]">Surgery</p>
-                <p className="text-[12px]">20 (25%)</p>
-              </div>
-              <div className="h-[25px] mt-[2px] bg-white">
-                <p className="bg-[#1A2492] h-full w-[60%]"></p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>

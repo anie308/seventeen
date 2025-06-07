@@ -34,62 +34,83 @@ function Appointment() {
   };
 
   return (
-    <div className=" p-6 rounded-lg">
-      <div className="flex text-white items-center justify-between">
-        <div>
-          <p className="text-xl">Calendar</p>
-          <p className="text-gray-400">Monitor Patient's visits</p>
+    <div className="space-y-6">
+      <div className="bg-white p-6 rounded-xl shadow-sm border border-surface-200">
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-2xl font-bold text-surface-900">Calendar</h1>
+            <p className="text-surface-600 mt-1">Monitor Patient's visits</p>
+          </div>
+          <button className="bg-primary hover:bg-primary-700 px-6 py-3 text-white rounded-lg font-medium transition-colors duration-200 flex items-center space-x-2">
+            <span>Schedule a Visit</span>
+          </button>
         </div>
-        <button className="bg-yellow-400 p-2 px-4 text-black rounded-lg font-medium">
-          Schedule a Visit
-        </button>
       </div>
 
-      <div className="text-white mt-5 gap-5 flex items-start">
-        <div className="w-1/4 flex flex-col bg-[#181818] rounded-lg">
-          <div className="p-4">
-            <p className="font-semibold">Today's Visits</p>
-            <p className="text-gray-400">{today.format("DD MMMM YYYY")}</p>
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+        <div className="bg-white rounded-xl shadow-sm border border-surface-200">
+          <div className="p-6 border-b border-surface-200">
+            <h3 className="font-semibold text-surface-900">Today's Visits</h3>
+            <p className="text-surface-600 text-sm mt-1">{today.format("DD MMMM YYYY")}</p>
           </div>
-          <div className="mt-4 flex flex-col space-y-3 border-t border-gray-700 p-4">
-            <div className="flex space-x-3 rounded-lg items-center p-3 bg-yellow-400">
-              <div className="h-12 w-12 rounded-full bg-gray-600"></div>
-              <div className="text-black">
-                <p className="text-sm">10:00 - 10:45</p>
-                <p className="text-base font-medium">Xever Thomas</p>
+          <div className="p-4 space-y-3">
+            <div className="flex items-center space-x-3 p-3 bg-primary/5 border border-primary/20 rounded-lg">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-primary to-primary-700 flex items-center justify-center">
+                <span className="text-white font-medium text-sm">XT</span>
+              </div>
+              <div>
+                <p className="text-sm text-surface-600">10:00 - 10:45</p>
+                <p className="font-medium text-surface-900">Xever Thomas</p>
               </div>
             </div>
-            <div className="flex space-x-3 rounded-lg items-center p-3 bg-yellow-400">
-              <div className="h-12 w-12 rounded-full bg-gray-600"></div>
-              <div className="text-black">
-                <p className="text-sm">11:00 - 11:45</p>
-                <p className="text-base font-medium">Alex Warren</p>
+            <div className="flex items-center space-x-3 p-3 bg-secondary/5 border border-secondary/20 rounded-lg">
+              <div className="h-12 w-12 rounded-full bg-gradient-to-br from-secondary to-secondary-700 flex items-center justify-center">
+                <span className="text-white font-medium text-sm">AW</span>
+              </div>
+              <div>
+                <p className="text-sm text-surface-600">11:00 - 11:45</p>
+                <p className="font-medium text-surface-900">Alex Warren</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="w-3/4">
-          <div className="my-4 flex items-center space-x-3">
-            <button className="p-2 px-4 text-white bg-gray-800 rounded-lg">Day</button>
-            <button className="p-2 px-4 text-black bg-yellow-400 rounded-lg">Month</button>
-            <button className="p-2 px-4 text-white bg-gray-800 rounded-lg">Year</button>
+        <div className="lg:col-span-3 bg-white rounded-xl shadow-sm border border-surface-200 p-6">
+          <div className="mb-6 flex items-center justify-between">
+            <div className="flex items-center space-x-2 bg-surface-100 p-1 rounded-lg">
+              <button className="px-4 py-2 text-surface-600 hover:text-surface-900 hover:bg-surface-200 rounded-md text-sm font-medium transition-colors">
+                Day
+              </button>
+              <button className="px-4 py-2 bg-primary text-white rounded-md text-sm font-medium shadow-sm">
+                Month
+              </button>
+              <button className="px-4 py-2 text-surface-600 hover:text-surface-900 hover:bg-surface-200 rounded-md text-sm font-medium transition-colors">
+                Year
+              </button>
+            </div>
+            <div className="flex items-center space-x-4">
+              <button 
+                onClick={prevMonth} 
+                className="p-2 bg-primary hover:bg-primary-700 text-white rounded-lg transition-colors"
+              >
+                <span className="text-lg">‹</span>
+              </button>
+              <h2 className="text-lg font-semibold text-surface-900 min-w-[140px] text-center">
+                {currentDate.format("MMMM YYYY")}
+              </h2>
+              <button 
+                onClick={nextMonth} 
+                className="p-2 bg-primary hover:bg-primary-700 text-white rounded-lg transition-colors"
+              >
+                <span className="text-lg">›</span>
+              </button>
+            </div>
           </div>
-          <div className="flex items-center justify-between mb-5">
-            <button onClick={prevMonth} className="text-black text-xl bg-yellow-400 p-1 px-3 rounded-lg">
-              &lt;
-            </button>
-            <p className="text-lg font-medium">
-              {currentDate.format("MMMM YYYY")}
-            </p>
-            <button onClick={nextMonth} className="text-black text-xl bg-yellow-400 p-1 px-3 rounded-lg">
-              &gt;
-            </button>
-          </div>
-          <div className="grid grid-cols-7 gap-2 mb-2">
+          
+          <div className="grid grid-cols-7 gap-2 mb-4">
             {daysOfWeek.map((day) => (
               <div
                 key={day}
-                className="text-center text-xs h-12 rounded-lg bg-[#181818] items-center justify-center flex text-white"
+                className="text-center text-sm font-medium h-10 rounded-lg bg-surface-100 items-center justify-center flex text-surface-700"
               >
                 {day}
               </div>
@@ -101,11 +122,11 @@ function Appointment() {
               <div
                 key={idx}
                 onClick={() => handleDateClick(date)}
-                className={`h-14 flex items-start justify-end p-2 rounded-lg cursor-pointer
+                className={`h-12 flex items-center justify-center rounded-lg cursor-pointer text-sm font-medium transition-all duration-200
                   ${!date ? "bg-transparent" : 
-                    date.format("YYYY-MM-DD") === today.format("YYYY-MM-DD") ? "bg-yellow-400 text-black font-semibold" : 
-                    date.format("YYYY-MM-DD") === selectedDate.format("YYYY-MM-DD") ? "bg-blue-600 text-white" : 
-                    "bg-[#181818] text-white hover:bg-gray-600"}
+                    date.format("YYYY-MM-DD") === today.format("YYYY-MM-DD") ? "bg-primary text-white shadow-md" : 
+                    date.format("YYYY-MM-DD") === selectedDate.format("YYYY-MM-DD") ? "bg-secondary text-white shadow-md" : 
+                    "bg-surface-50 text-surface-700 hover:bg-surface-100 border border-surface-200"}
                 `}
               >
                 {date ? date.date() : ""}

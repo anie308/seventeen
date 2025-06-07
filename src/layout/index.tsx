@@ -5,11 +5,11 @@ import { Outlet } from "react-router-dom"
 
 function Layout() {
   return (
-    <div className="flex bg-[#000000] font-poppins items-start  w-full h-screen min-h-screen">
+    <div className="flex bg-surface-50 font-poppins items-start w-full h-screen min-h-screen">
         <Sidebar/>
         <div className="flex-1 flex flex-col h-full w-full">
             <Navbar/>
-           <div className="flex-1 p-[20px] overflow-y-scroll">
+           <div className="flex-1 p-6 overflow-y-scroll bg-surface-50">
             <Outlet/>
            </div>
         </div>
