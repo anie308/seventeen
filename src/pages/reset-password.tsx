@@ -1,7 +1,7 @@
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FiLock, FiEye, FiEyeOff, FiArrowRight, FiShield, FiCheck, FiX } from "react-icons/fi";
-import { ThemeProvider, useTheme } from "../components/ThemeProvider";
+import { ThemeProvider } from "../components/ThemeProvider";
 import logo from "../assets/gt-logo.svg";
 
 interface ResetPasswordFormData {
@@ -16,7 +16,6 @@ interface ResetPasswordFormErrors {
 
 function ResetPasswordContent() {
   const navigate = useNavigate();
-  const { theme } = useTheme();
   const [searchParams] = useSearchParams();
   const token = searchParams.get('token');
   
@@ -133,7 +132,7 @@ function ResetPasswordContent() {
           <Link to="/" className="flex items-center space-x-3">
             <img src={logo} className="h-12" alt="Seventeen Healthcare" />
             <div>
-              <h1 className="text-white font-bold text-lg">Seventeen</h1>
+              <h1 className="text-white font-bold text-lg">Rapha Medical</h1>
               <p className="text-surface-400 text-sm">Healthcare Management</p>
             </div>
           </Link>
@@ -177,7 +176,7 @@ function ResetPasswordContent() {
         <Link to="/" className="flex items-center space-x-3">
           <img src={logo} className="h-12" alt="Seventeen Healthcare" />
           <div>
-            <h1 className="text-white font-bold text-lg">Seventeen</h1>
+            <h1 className="text-white font-bold text-lg">Rapha Medical</h1>
             <p className="text-surface-400 text-sm">Healthcare Management</p>
           </div>
         </Link>
@@ -195,7 +194,7 @@ function ResetPasswordContent() {
                 </div>
                 <h2 className="text-3xl font-bold text-white">Set new password</h2>
                 <p className="text-surface-400">
-                  Create a secure password for your <span className="text-primary font-medium">{theme.hospitalName}</span> account
+                  Create a secure password for your  account
                 </p>
               </div>
 
@@ -331,7 +330,7 @@ function ResetPasswordContent() {
               {/* Success Message */}
               <div className="bg-success/10 border border-success/20 rounded-lg p-4">
                 <p className="text-success text-sm">
-                  For security, you've been signed out of all devices. Please sign in again to access your {theme.hospitalName} dashboard.
+                  For security, you've been signed out of all devices. Please sign in again to access your  dashboard.
                 </p>
               </div>
 

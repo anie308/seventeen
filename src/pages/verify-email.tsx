@@ -1,12 +1,11 @@
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FiMail, FiCheck, FiX, FiArrowRight, FiClock, FiShield } from "react-icons/fi";
-import { ThemeProvider, useTheme } from "../components/ThemeProvider";
+import { ThemeProvider } from "../components/ThemeProvider";
 import logo from "../assets/gt-logo.svg";
 
 function VerifyEmailContent() {
   const navigate = useNavigate();
-  const { theme } = useTheme();
   const [searchParams] = useSearchParams();
   const token = searchParams.get('token');
   const email = searchParams.get('email') || 'admin@hospital.com'; // fallback email
@@ -109,7 +108,7 @@ function VerifyEmailContent() {
 
             {/* Instructions */}
             <div className="bg-surface-800/50 border border-surface-700 rounded-lg p-6 text-left space-y-4">
-              <h3 className="text-white font-semibold">To complete your {theme.hospitalName} setup:</h3>
+              <h3 className="text-white font-semibold">To complete your setup:</h3>
               <ol className="space-y-2 text-surface-300 text-sm">
                 <li className="flex items-start space-x-2">
                   <span className="bg-primary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center mt-0.5 font-bold">1</span>
@@ -213,7 +212,7 @@ function VerifyEmailContent() {
               <div className="space-y-2">
                 <h2 className="text-3xl font-bold text-white">Email verified!</h2>
                 <p className="text-surface-400">
-                  Welcome to <span className="text-primary font-medium">{theme.hospitalName}</span>! 
+                  Welcome to <span className="text-primary font-medium">Rapha Medicals</span>! 
                   Your email has been successfully verified and your account is now active.
                 </p>
               </div>

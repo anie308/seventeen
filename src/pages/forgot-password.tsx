@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FiMail, FiArrowLeft, FiArrowRight, FiShield, FiClock, FiCheck } from "react-icons/fi";
 import { ThemeProvider, useTheme } from "../components/ThemeProvider";
@@ -13,7 +13,6 @@ interface ForgotPasswordFormErrors {
 }
 
 function ForgotPasswordContent() {
-  const navigate = useNavigate();
   const { theme } = useTheme();
   const [formData, setFormData] = useState<ForgotPasswordFormData>({
     email: "",
@@ -76,7 +75,7 @@ function ForgotPasswordContent() {
         <Link to="/" className="flex items-center space-x-3">
           <img src={logo} className="h-12" alt="Seventeen Healthcare" />
           <div>
-            <h1 className="text-white font-bold text-lg">Seventeen</h1>
+            <h1 className="text-white font-bold text-lg">Rapha Medical</h1>
             <p className="text-surface-400 text-sm">Healthcare Management</p>
           </div>
         </Link>
